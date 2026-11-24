@@ -9,6 +9,11 @@ export const routes: Routes = [
         title: () => `About ${inject(AppInfo).title()}`,
     },
     {
+        path: 'privacy',
+        loadComponent: () => import('./privacy/privacy').then(m => m.Privacy),
+        title: () => `${inject(AppInfo).title()}: Privacy & Legal`,
+    },
+    {
         // Paths are relative to their parent, so the home page is '' (never '/').
         path: '',
         pathMatch: 'full',

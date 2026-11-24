@@ -2,12 +2,12 @@
     --my-blue-highlight: #55709A;
 }
 input[type="search"] {
-    font-size: 110%;
+    font-size: 100%;
     padding: 0.5rem 1rem;
     border-radius: 1.5rem;
     border: solid 1px #a0a0a0;
     display: inline-block;
-    margin: .5rem auto;
+    margin: 1rem auto;
     width: 95%;
 }
 
