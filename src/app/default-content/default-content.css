@@ -1,0 +1,61 @@
+:host {
+    --my-blue-highlight: #55709A;
+}
+input[type="search"] {
+    font-size: 110%;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    border: solid 1px #a0a0a0;
+    display: inline-block;
+    margin: .5rem auto;
+    width: 95%;
+}
+
+button {
+    font-size: 110%;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    display: inline-block;
+    border: solid 1px transparent;
+    cursor: pointer;
+    /* Animate between the at-rest and :active states (colors, border and the press offset). */
+    transition-property: background-color, color, border-color, transform;
+    transition-duration: 0.333s;
+    transition-timing-function: linear;
+}
+button:active {
+    border: solid 1px var(--my-blue-highlight);
+    transform: translateY(3px) translateX(3px);
+}
+
+#btnSearch {
+    background-color: var(--my-blue-highlight);
+    color: white;
+    margin-right: 0.25rem;
+}
+#btnSearch:active {
+    background-color: white;
+    color: var(--my-blue-highlight);
+}
+
+#btnClear {
+    background-color: white;
+    color: var(--my-blue-highlight);
+    border: solid 1px var(--my-blue-highlight);
+    margin-left: 0.25rem;
+
+}
+#btnClear:active {
+    background-color: var(--my-blue-highlight);
+    color: white;
+}
+
+/* Respect users who ask for less motion: keep the color change, drop the movement and animation. */
+@media (prefers-reduced-motion: reduce) {
+    button {
+        transition: none;
+    }
+    button:active {
+        transform: none;
+    }
+}

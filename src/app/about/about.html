@@ -1,0 +1,61 @@
+<h2>About {{ title() }}</h2>
+
+<p>
+  {{ title() }} helps you dig into the people behind the music: who an artist is, what they've
+  released, and who played what on each track. You can also click on any of <em>those</em> artists names 
+  to start a new search on them, and keep going down the rabbit hole. 🐰
+</p>
+
+<h3>Where the information comes from</h3>
+<p>
+  Everything you see is pulled live from
+  <a href="https://musicbrainz.org/" target="_blank" rel="noopener">MusicBrainz<span class="visually-hidden"> (opens in a new tab)</span></a>,
+  an open, community-maintained music encyclopedia run by the non-profit MetaBrainz Foundation.
+  {{ title() }} doesn't keep its own copy of the data. Each search asks MusicBrainz directly at
+  that moment, so you always get its latest information, including corrections other
+  contributors made minutes ago.
+</p>
+
+<h3>How a search works</h3>
+<ol>
+  <li>
+    <strong>Find the artist.</strong> Your search is sent to MusicBrainz, and {{ title() }} shows the
+    best-matching artist or group, along with their active years where known.
+  </li>
+  <li>
+    <strong>Gather their releases.</strong> Next, it requests up to 100 of that artist's releases.
+    Only official releases issued in the United States or the United Kingdom are kept, listed
+    from oldest to newest and then by title.
+  </li>
+  <li>
+    <strong>Open a release for the credits.</strong> Choosing a release fetches its full track
+    list, along with the musicians credited on each track and the instruments or vocal parts
+    they performed. Where a release credits a specific instrument, such as a particular guitar,
+    that detail appears in parentheses.
+  </li>
+</ol>
+
+<h3>Why things sometimes take a moment</h3>
+<p>
+  MusicBrainz is a free service, and to keep it running smoothly for everyone it allows each
+  application about one request per second. {{ title() }} respects that limit by lining up its
+  requests and sending them roughly a second apart. That's why the release list may appear a
+  beat after the artist, and track details can take a moment when you open a release right after
+  a search.
+</p>
+<p>
+  If MusicBrainz is especially busy, it may briefly turn a request away. When that happens,
+  you'll see a message with a <strong>Try again</strong> button. Waiting a few seconds and trying
+  again usually works.
+</p>
+
+<h3>A note on accuracy</h3>
+<p>
+  MusicBrainz is built by volunteers, so the level of detail varies. Well-known albums often have
+  complete track-by-track credits, while others may list only the tracks, or no musicians at all.
+  If something is missing or wrong, it's missing or wrong at the source, and anyone can
+  <a href="https://musicbrainz.org/doc/How_to_Contribute" target="_blank" rel="noopener">contribute corrections to MusicBrainz<span class="visually-hidden"> (opens in a new tab)</span></a>.
+</p>
+<p class="back">
+    <a routerLink="/" class="back-link">Back to search</a>
+</p>

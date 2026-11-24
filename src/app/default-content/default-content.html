@@ -1,0 +1,14 @@
+<p>This is the place to find out more about your favorite musicians and their recordings!</p>
+<p>Read our <a href="/about">about page</a> to learn more, or just dive in:</p>
+<form
+  role="search"
+  (submit)="$event.preventDefault(); onSearch(txtSearch.value)"
+  (reset)="onClear(txtSearch)"
+>
+  <p>
+    <label for="txtSearch">Search for a musician or group:</label>
+    <input #txtSearch type="search" id="txtSearch" [value]="search.query()" placeholder="Ex: The Beatles, Miles Davis" />
+    <button type="submit" id="btnSearch">Search</button>
+    <button type="reset" id="btnClear">Clear</button>
+  </p>
+</form>
