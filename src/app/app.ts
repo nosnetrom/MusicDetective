@@ -1,6 +1,5 @@
 import { Component, ElementRef, inject, viewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { MusicSearch } from './music-search/music-search';
 import { ReleaseSearch } from './release-search/release-search';
 import { ReleaseSelection } from './release-selection/release-selection';
@@ -9,7 +8,7 @@ import { AppInfo } from './app-info';
 import { Footer } from './footer/footer';
 
 @Component({
-  imports: [RouterOutlet, Footer, ReleaseDialog],
+  imports: [RouterOutlet, RouterLink, Footer, ReleaseDialog],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
