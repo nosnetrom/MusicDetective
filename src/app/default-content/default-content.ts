@@ -1,9 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { AppInfo } from '../app-info';
 import { MusicSearch } from '../music-search/music-search';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-default-content',
   styleUrl: './default-content.css',
   templateUrl: './default-content.html',
