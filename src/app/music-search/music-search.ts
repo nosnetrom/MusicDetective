@@ -47,7 +47,8 @@ export class MusicSearch {
   readonly query = signal('');
 
   /**
-   * Searches for `term`. Repeating the current search re-sends the request (e.g. after a 503);
+   * Searches for `term`. Repeating the current search re-sends the request (e.g. after the
+   * interceptor has given up retrying a busy server);
    * setting a signal to the value it already holds wouldn't trigger a new fetch.
    */
   search(term: string) {

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { DefaultContent } from './default-content';
 
 describe('DefaultContent', () => {
@@ -8,6 +9,8 @@ describe('DefaultContent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DefaultContent],
+      // The template uses routerLink, which needs the router's services (e.g. ActivatedRoute).
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DefaultContent);

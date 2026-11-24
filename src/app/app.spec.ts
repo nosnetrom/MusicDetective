@@ -1,10 +1,13 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { App } from './app';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
+      // The template uses routerLink, which needs the router's services (e.g. ActivatedRoute).
+      providers: [provideRouter([])],
     })
       .compileComponents();
   });
