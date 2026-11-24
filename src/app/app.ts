@@ -1,5 +1,6 @@
 import { Component, ElementRef, inject, viewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { MusicSearch } from './music-search/music-search';
 import { ReleaseSearch } from './release-search/release-search';
 import { ReleaseSelection } from './release-selection/release-selection';
