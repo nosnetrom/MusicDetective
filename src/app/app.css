@@ -132,10 +132,6 @@
   width: calc(50% - 1rem);
   margin: 0.25rem .5rem;
   padding: 0;
-  color: white;
-  background: oklch(58.689% 0.0685 256.769);
-  border: none; /*solid 1px oklch(35.45% 0.0075 304.04);*/
-  border-radius: 0.25rem;
   box-sizing: border-box;
 }
 

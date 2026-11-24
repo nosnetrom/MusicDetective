@@ -1,7 +1,7 @@
 <main class="main">
   <div class="content">
     <div class="left-side">
-      <a routerLink="/" title="{{ title() }} logo">
+      <a routerLink="/" title="{{ title() }} logo" id="logo">
 <svg
    version="1.0"
    width="192pt"
@@ -163,7 +163,7 @@
 
   <div class="content" id="divResults" #resultsArea tabindex="-1" role="region" aria-label="Search results" aria-live="polite">
     @if (search.results.isLoading()) {
-      <div><p>Searching…</p></div>
+      <div><p role="status"><span>Searching…</span></p></div>
     } @else if (search.results.error()) {
       <div>
         <p role="alert">The server is too busy. 🥵</p>
@@ -180,7 +180,7 @@
         </h2>
         <div id="releaseResults" aria-live="polite">
           @if (releaseSearch.results.isLoading()) {
-            <p>Loading releases…</p>
+            <p role="status"><span>Loading releases…</span></p>
           } @else if (releaseSearch.results.error()) {
             <p role="alert">The server is too busy. 🥵</p>
             <button type="button" class="release-link try-again" (click)="releaseSearch.results.reload()">Try again</button>
@@ -226,6 +226,7 @@
 
         <a class="pill" routerLink="/"><span>{{ title() }} Home</span></a>
         <a class="pill" routerLink="/about"><span>About {{ title() }}</span></a>
+        <a class="pill" routerLink="/privacy"><span>Privacy &amp; Legal</span></a>
       </div>
 
   </div>

@@ -83,7 +83,7 @@ const RELEASE_INCLUDES = 'artist-credits+recordings+recording-level-rels+artist-
 
         <section id="tracks-section">
           @if (tracks.isLoading()) {
-            <p role="status">Loading track details…</p>
+            <p role="status"><span>Loading track details…</span></p>
           } @else if (tracks.error()) {
             <p role="alert">The server is too busy. 🥵</p>
             <button type="button" class="release-link try-again" (click)="tracks.reload()">Try again</button>

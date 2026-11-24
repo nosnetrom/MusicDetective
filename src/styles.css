@@ -29,8 +29,9 @@
 
     --pill-accent: var(--bright-blue);
 
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    /* "Segoe UI", Roboto, */
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, 
+      "Gill Sans MT", "Gill Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
       "Segoe UI Symbol";
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -43,7 +44,7 @@
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
       "Segoe UI Symbol";
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 150%;
   }
 
@@ -77,7 +78,7 @@
   }
 
   button[type="submit"] {
-    background-color:#627EA5; 
+    background-color:var(--my-blue-highlight); 
     color: white;
     border-radius: 14px;
     padding: 3px 12px;
@@ -139,18 +140,21 @@
     display: flex;
     align-items: center;
     margin-top: 2rem;
+    margin-bottom: 3rem;
   }
 
 /* Release titles: real buttons (keyboard accessible) styled as links */
 .release-link {
   font: inherit;
   color: white; /*var(--bright-blue);*/
-  background: #627EA5;
+  background: var(--my-blue-highlight);
   border: 0;
   padding: 0;
   text-align: start;
   text-decoration: dotted underline;
   cursor: pointer;
+  width: 100%;
+  border-radius: 1.25rem;
 }
 
 .release-link:hover {
@@ -158,17 +162,59 @@
 }
 
 .release-link:focus-visible {
-  outline: 2px solid var(--bright-blue);
+  outline: 2px solid var(--my-blue-highlight);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
 .performer-link {
-  color: #627EA5;
+  color: var(--my-blue-highlight);
+}
+
+p[role="alert"],
+p[role="status"] {
+  font-size: 125%;
+  font-weight: 700;
+  color: rgb(128, 0, 0);
 }
 
 p[role="alert"] {
-  padding-right: 12px;
+  padding-right: 1rem;
+}
+
+@keyframes myLoader {
+  0%	{transform: translateX(0%);}
+  50%	{transform: translateX(100%);}
+  100%	{transform: translateX(0%);}
+}
+
+p[role="status"] > span {
+  position: relative;
+}
+
+p[role="status"] > span:before {
+  z-index: -1;
+  content: "|";
+  font-weight: 900;
+  font-size: 120%;
+  width: 100%;
+  /* height: 1.1rem; */
+  line-height: 150%;
+  color: var(--my-blue-highlight);
+  text-shadow: 0.1rem 0rem 0rem, -0.1rem 0rem 0rem;
+  position: absolute;
+  left: 0;
+  top: -0.25rem;
+  animation-name: myLoader;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+/* Respect users who ask for less motion: keep the bar but stop it sweeping. */
+@media (prefers-reduced-motion: reduce) {
+  p[role="status"] > span:before {
+    animation: none;
+  }
 }
 
 .try-again {
