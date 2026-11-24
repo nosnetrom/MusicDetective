@@ -1,0 +1,5 @@
+# Single-page app fallback: serve index.html for any URL that isn't a real
+# file or directory, so Angular's router can handle routes like /about.
+# If deployed to a subfolder, change the path (e.g. /musicdetective/index.html)
+# and build with --base-href /musicdetective/.
+FallbackResource /index.html
