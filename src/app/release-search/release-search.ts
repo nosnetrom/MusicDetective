@@ -26,9 +26,9 @@ interface ReleaseBrowseResponse {
 const ALLOWED_COUNTRIES = new Set(['US', 'GB']);
 
 /**
- * Orders releases by date (oldest first), then by title.
- * Dates are partial ISO strings, so plain string comparison sorts them chronologically
- * ("1959" comes before "1959-08-17"). Releases with no date go last.
+ * Orders releases by date (newest first), then by title.
+ * Dates are partial ISO strings, so plain string comparison sorts them chronologically;
+ * reversing it puts the newest first ("1959-08-17" comes before "1959"). Releases with no date go last.
  */
 function compareReleases(a: Release, b: Release): number {
   if (a.date !== b.date) {
