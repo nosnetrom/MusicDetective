@@ -5,7 +5,7 @@
 
     --my-blue-highlight: oklch(54.157% 0.07355 259.045);
     --my-base-color: oklch(96.715% 0.00011 271.152);
-    --my-maroon-accent: oklch(37.667% 0.15458 29.223 / 0.5);
+    --my-maroon-accent: oklch(37.667% 0.15458 29.223);
 
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;

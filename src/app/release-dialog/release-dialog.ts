@@ -91,7 +91,7 @@ const RELEASE_INCLUDES = 'artist-credits+recordings+recording-level-rels+artist-
             <ol class="tracks">
               @for (track of tracks.value(); track track.id) {
                 <li>
-                  <strong>{{ track.title }}</strong>
+                  <span class="trackTitle">{{ track.title }}</span>
                   @if (track.performers.length) {
                     <ul>
                       @for (performer of track.performers; track performer.artistId) {
@@ -231,6 +231,10 @@ const RELEASE_INCLUDES = 'artist-credits+recordings+recording-level-rels+artist-
     .content {
       flex: 1;
       overflow-y: auto;
+    }
+
+    .trackTitle {
+        font-weight: 600;
     }
 
     .tracks {
