@@ -73,10 +73,12 @@
     align-items: center; 
     width: 100%;
     height: 100%;
+    flex-direction: column;
 }
 
 #divResults > h2 {
     margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
 #divResults > h2 small {
@@ -91,6 +93,7 @@
 
 #releaseResults ul {
     padding-inline-start: 0;
+    margin-bottom: 2rem;
 }
 
 #releaseResults ul li {
@@ -106,6 +109,42 @@
 #releaseResults ul li span {
   display: block;
   padding: 0.5rem;
+}
+
+/* The list takes focus after a page change; show where focus went for keyboard users. */
+#releaseResults ul:focus-visible {
+  outline: 2px solid var(--my-blue-highlight);
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+
+.release-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.release-pager p {
+  margin: 0;
+}
+
+/* Previous / Next: large transparent arrow buttons in the highlight color. */
+.release-pager .release-link {
+  width: auto;
+  /* padding: 0.375rem 1rem; */
+  padding: 0;
+  color: var(--my-blue-highlight);
+  font-size: 200%;
+  line-height: 100%;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.release-pager .release-link:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 app-footer {

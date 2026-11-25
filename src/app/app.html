@@ -161,6 +161,8 @@
     </div>
   </div>
 
+  <!-- Results belong to the search page only; they stay in memory, so returning home shows them again. -->
+  @if (isHome()) {
   <div class="content" id="divResults" #resultsArea tabindex="-1" role="region" aria-label="Search results" aria-live="polite">
     @if (search.results.isLoading()) {
       <div><p role="status"><span>Searching…</span></p></div>
@@ -185,8 +187,12 @@
             <p role="alert">The server is too busy. 🥵</p>
             <button type="button" class="release-link try-again" (click)="releaseSearch.results.reload()">Try again</button>
           } @else {
-            <ul>
-              @for (release of releaseSearch.results.value(); track release.id) {
+            @let list = releaseSearch.results.value();
+            @if (list.total > list.releases.length) {
+              <p class="release-count">Showing the newest {{ list.releases.length }} of {{ list.total }} releases.</p>
+            }
+            <ul #releaseList tabindex="-1" aria-label="Releases">
+              @for (release of releaseSearch.screenReleases(); track release.id) {
                 <li>
                   <button type="button" class="release-link" (click)="selection.selected.set(release)">
                     <span
@@ -201,14 +207,22 @@
                 <li>No official US or UK releases found.</li>
               }
             </ul>
+            @if (releaseSearch.screenCount() > 1) {
+              <nav class="release-pager" aria-label="Release pages">
+                <button type="button" class="release-link" [disabled]="releaseSearch.screen() === 0" (click)="showPreviousScreen()" title="Previous" aria-label="Previous page">&#9668;</button>
+                <p aria-live="polite">Page {{ releaseSearch.screen() + 1 }} of {{ releaseSearch.screenCount() }}</p>
+                <button type="button" class="release-link" [disabled]="releaseSearch.screen() === releaseSearch.screenCount() - 1" (click)="showNextScreen()" title="Next" aria-label="Next page">&#9658;</button>
+              </nav>
+            }
           }
         </div>
       } @else {
         <div><p>No results found.</p></div>
       }
-    
+
     }
   </div>
+  }
 
   <div class="content nav-content">
       <div class="pill-group">

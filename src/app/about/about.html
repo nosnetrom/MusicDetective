@@ -23,9 +23,10 @@
     best-matching artist or group, along with their active years where known.
   </li>
   <li>
-    <strong>Gather their releases.</strong> Next, it requests up to 100 of that artist's releases.
-    Only official releases issued in the United States or the United Kingdom are kept, listed
-    from newest to oldest and then by title.
+    <strong>Gather their releases.</strong> Next, it asks MusicBrainz for that artist's official
+    releases issued in the United States or the United Kingdom, 100 at a time. They're listed from
+    newest to oldest and then by title, 25 to a page. For artists with a very large catalog, it
+    keeps the newest 500 and tells you how many there are in all.
   </li>
   <li>
     <strong>Open a release for the credits.</strong> Choosing a release fetches its full track
@@ -41,12 +42,13 @@
   application about one request per second. {{ title() }} respects that limit by lining up its
   requests and sending them roughly a second apart. That's why the release list may appear a
   beat after the artist, and track details can take a moment when you open a release right after
-  a search.
+  a search. An artist with hundreds of releases needs several requests, so their list can take
+  up to about ten seconds to gather.
 </p>
 <p>
-  If MusicBrainz is especially busy, it may briefly turn a request away. When that happens,
-  you'll see a message with a <strong>Try again</strong> button. Waiting a few seconds and trying
-  again usually works.
+  If MusicBrainz is especially busy, it may briefly turn a request away. {{ title() }} quietly
+  tries again every few seconds for up to 30 seconds. If it still can't get through, you'll see
+  a message with a <strong>Try again</strong> button. Waiting a little and trying again usually works.
 </p>
 
 <h3>A note on accuracy</h3>
